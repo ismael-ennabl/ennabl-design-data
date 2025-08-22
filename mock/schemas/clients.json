@@ -1,0 +1,42 @@
+{
+  "table": "clients",
+  "count": 50,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+
+    "name": "company.name",
+    "email": "internet.email",
+    "phone": "+1${string.numeric:10}",
+    "website": "internet.url",
+
+    "industry": "commerce.department",
+    "naics": "number.int:111110:928120",
+    "naics_2_digits": "number.int:11:92",
+    "naics_4_digits": "number.int:1111:9281",
+
+    "address": {
+      "type": "object",
+      "properties": {
+        "street": "location.streetAddress",
+        "city": "location.city",
+        "state": "location.state",
+        "zip": "location.zipCode"
+      }
+    },
+
+    "contacts": {
+      "type": "array",
+      "count": 2,
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": "person.fullName",
+          "email": "internet.email",
+          "title": "person.jobTitle"
+        }
+      }
+    }
+  }
+}
+
+

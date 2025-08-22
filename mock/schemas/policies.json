@@ -1,0 +1,68 @@
+{
+  "table": "policies",
+  "count": 50,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+
+    "account": "relation.clients.name",
+    "account_lookup_id": "relation.clients.id",
+
+    "product": "commerce.product",
+    "product_lines": "helpers.arrayElement:Property:General Liability:Auto:Workers Comp:Cyber:Umbrella:Inland Marine:Professional Liability:D&O:E&O",
+    "policy_number": "string.uuid",
+
+    "revenue_billed": "number.float:500:250000:2",
+    "premium_billed": "number.float:1000:500000:2",
+    "commission_billed": "number.float:100:100000:2",
+
+    "revenue_ennabl": "number.float:500:250000:2",
+    "premium_ennabl": "number.float:1000:500000:2",
+    "commission_ennabl": "number.float:100:100000:2",
+
+    "revenue_ams": "number.float:500:250000:2",
+    "premium_ams": "number.float:1000:500000:2",
+    "commission_ams": "number.float:100:100000:2",
+
+    "revenue_prod_credit": "number.float:0:250000:2",
+    "premium_prod_credit": "number.float:0:500000:2",
+    "production_credit": "number.float:0:100000:2",
+
+    "effective_date": "date.between:2024-01-01:2026-12-31",
+    "expiration_date": "date.afterColumn:effective_date:30:730",
+
+    "am_best_rating": "A",
+    "financial_size": "helpers.arrayElement:I:II:III:IV:V:VI:VII:VIII:IX:X:XI:XII:XIII:XIV:XV",
+
+    "producer": "person.fullName",
+    "account_manager": "person.fullName",
+    "account_executives": {
+      "type": "array",
+      "items": "person.fullName",
+      "count": 2
+    },
+
+    "market": "company.name",
+    "issuing_paper": "company.name",
+    "pay_to": "person.fullName",
+    "intermediary": "company.name",
+
+    "policy_status_ennabl": "helpers.arrayElement:Active:Canceled:Expired:Bound:Quoted:Issued",
+    "policy_status_ams": "helpers.arrayElement:Active:Canceled:Expired:Pending:Bound",
+    "renewal_status": "helpers.arrayElement:Renewed:Non-Renew:Remarket:Pending:Lost",
+
+    "product_segment": "helpers.arrayElement:SMB:Mid-Market:Enterprise",
+    "industry": "commerce.department",
+    "industry_subgroup": "commerce.productAdjective",
+
+    "naics": "number.int:111110:928120",
+    "naics_2_digits": "number.int:11:92",
+    "naics_4_digits": "number.int:1111:9281",
+
+    "city": "location.city",
+    "state": "helpers.arrayElement:AL:AK:AZ:AR:CA:CO:CT:DE:FL:GA:HI:ID:IL:IN:IA:KS:KY:LA:ME:MD:MA:MI:MN:MS:MO:MT:NE:NV:NH:NJ:NM:NY:NC:ND:OH:OK:OR:PA:RI:SC:SD:TN:TX:UT:VT:VA:WA:WV:WI:WY",
+    "zip": "location.zipCode",
+    "biz_org": "helpers.arrayElement:LLC:Inc:Corp:GmbH:S.L.:S.A."
+  }
+}
+
+

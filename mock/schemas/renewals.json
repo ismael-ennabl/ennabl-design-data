@@ -1,0 +1,33 @@
+{
+  "table": "renewals",
+  "count": 30,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+
+    "policy_id": "relation.policies.id",
+    "account": "relation.policies.account",
+    "policy_number": "relation.policies.policy_number",
+
+    "renewal_status": "helpers.arrayElement:Incoming:Quoted:Bound:Lost:Non-Renew",
+    "due_date": "date.between:2024-11-01:2025-12-31",
+    "premium_quoted": "number.float:1000:500000:2",
+    "premium_prior": "relation.policies.premium_billed",
+    "commission_quoted": "number.float:100:100000:2",
+
+    "notes": {
+      "type": "array",
+      "min": 1,
+      "max": 3,
+      "items": {
+        "type": "object",
+        "properties": {
+          "at": "date.between:2024-01-01:2025-12-31",
+          "by": "person.fullName",
+          "text": "lorem.sentence"
+        }
+      }
+    }
+  }
+}
+
+
