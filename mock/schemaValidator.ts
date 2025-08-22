@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { faker } from '@faker-js/faker';
 
 type SchemaNode = any;
 
@@ -12,6 +13,7 @@ const KNOWN_PREFIXES = [
   'finance.amount:',
   'date.between:'
   , 'date.afterColumn:'
+  , 'string.numeric:'
 ];
 
 function isObject(value: unknown): value is Record<string, unknown> {
@@ -20,19 +22,7 @@ function isObject(value: unknown): value is Record<string, unknown> {
 
 function validateRule(rule: SchemaNode, table: string, errors: string[], pathStr: string): void {
   if (typeof rule === 'string') {
-    // Accept bare faker paths like company.name, person.fullName, etc.
-    const isKnown = KNOWN_PREFIXES.some((p) => rule.startsWith(p));
-    if (!isKnown && rule.includes(':') && !rule.includes('${')) {
-      // Looks like a DSL but not a known prefix
-      errors.push(`${pathStr}: Unknown DSL rule "${rule}"`);
-    }
-    // relation validation shape
-    if (rule.startsWith('relation.')) {
-      const parts = rule.split('.');
-      if (parts.length !== 3) {
-        errors.push(`${pathStr}: Invalid relation rule "${rule}"`);
-      }
-    }
+    validateStringRule(rule, errors, pathStr);
     return;
   }
 
@@ -54,15 +44,17 @@ function validateRule(rule: SchemaNode, table: string, errors: string[], pathStr
       return;
     }
 
-    // object node
+    // object node (support both properties and fields)
     if ((rule as any).type === 'object') {
       const obj = rule as any;
-      if (!isObject(obj.properties)) {
-        errors.push(`${pathStr}: object.properties must be an object`);
+      const props = isObject(obj.properties) ? obj.properties : (isObject(obj.fields) ? obj.fields : undefined);
+      const label = isObject(obj.properties) ? 'properties' : (isObject(obj.fields) ? 'fields' : undefined);
+      if (!props || !label) {
+        errors.push(`${pathStr}: object must define either properties or fields object`);
         return;
       }
-      for (const [k, v] of Object.entries(obj.properties)) {
-        validateRule(v, table, errors, `${pathStr}.properties.${k}`);
+      for (const [k, v] of Object.entries(props)) {
+        validateRule(v, table, errors, `${pathStr}.${label}.${k}`);
       }
       return;
     }
@@ -72,6 +64,69 @@ function validateRule(rule: SchemaNode, table: string, errors: string[], pathStr
   }
 
   errors.push(`${pathStr}: Unsupported rule node type`);
+}
+
+function validateStringRule(rule: string, errors: string[], pathStr: string) {
+  const isKnown = KNOWN_PREFIXES.some((p) => rule.startsWith(p));
+  if (!isKnown && rule.includes(':') && !rule.includes('${')) {
+    const [methodPath] = rule.split(':');
+    const fn = methodPath.split('.').reduce<any>((acc, k) => (acc ? acc[k] : undefined), faker);
+    if (typeof fn !== 'function') {
+      errors.push(`${pathStr}: Unknown DSL rule or faker path "${rule}"`);
+    }
+  }
+
+  if (rule.startsWith('relation.')) {
+    const parts = rule.split('.');
+    if (parts.length !== 3) {
+      errors.push(`${pathStr}: Invalid relation rule "${rule}"`);
+    }
+  }
+
+  if (rule.startsWith('helpers.arrayElement:')) {
+    const args = rule.split(':').slice(1);
+    if (args.length === 0) {
+      errors.push(`${pathStr}: helpers.arrayElement requires values`);
+    }
+  }
+
+  if (rule.startsWith('number.int:')) {
+    const [, minStr, maxStr] = rule.split(':');
+    if (isNaN(Number(minStr)) || isNaN(Number(maxStr))) {
+      errors.push(`${pathStr}: number.int requires numeric min and max`);
+    }
+  }
+
+  if (rule.startsWith('number.float:')) {
+    const [, minStr, maxStr, decStr] = rule.split(':');
+    if (isNaN(Number(minStr)) || isNaN(Number(maxStr)) || (decStr && isNaN(Number(decStr)))) {
+      errors.push(`${pathStr}: number.float requires numeric min, max, and optional decimals`);
+    }
+  }
+
+  if (rule.startsWith('string.numeric:')) {
+    const [, lenStr] = rule.split(':');
+    if (isNaN(Number(lenStr))) {
+      errors.push(`${pathStr}: string.numeric requires a numeric length`);
+    }
+  }
+
+  if (rule.startsWith('date.between:')) {
+    const [, startStr, endStr] = rule.split(':');
+    if (!isValidDate(startStr) || !isValidDate(endStr)) {
+      errors.push(`${pathStr}: date.between requires valid ISO dates`);
+    }
+  }
+
+  if (rule.startsWith('date.afterColumn:')) {
+    const [, column, minStr, maxStr] = rule.split(':');
+    if (!column) {
+      errors.push(`${pathStr}: date.afterColumn requires a base column name`);
+    }
+    if ((minStr && isNaN(Number(minStr))) || (maxStr && isNaN(Number(maxStr)))) {
+      errors.push(`${pathStr}: date.afterColumn min/max must be numeric if provided`);
+    }
+  }
 }
 
 export function validateSchemaFile(filePath: string): string[] {
@@ -119,6 +174,12 @@ if (require.main === module) {
     }
   }
   if (hasErrors) process.exit(1);
+}
+
+function isValidDate(s: string | undefined): boolean {
+  if (!s) return false;
+  const d = new Date(s);
+  return !Number.isNaN(d.getTime());
 }
 
 

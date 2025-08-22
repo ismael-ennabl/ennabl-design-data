@@ -5,9 +5,10 @@
   "type": "commonjs",
   "scripts": {
     "validate:schemas": "ts-node mock/schemaValidator.ts",
-    "seed:tenant": "ts-node mock/seedTenant.ts",
+    "mock:validate": "ts-node mock/schemaValidator.ts",
+    "seed:tenant": "npm run -s mock:validate && ts-node mock/seedTenant.ts",
     "reset:tenant": "ts-node mock/resetTenant.ts",
-    "reseed:tenant": "ts-node mock/reseedTenant.ts"
+    "reseed:tenant": "npm run -s mock:validate && ts-node mock/reseedTenant.ts"
   },
   "dependencies": {
     "@faker-js/faker": "^9.0.0",
