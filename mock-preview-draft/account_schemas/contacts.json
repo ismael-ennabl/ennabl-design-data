@@ -1,0 +1,13 @@
+{
+  "table": "contacts",
+  "count": 40,
+  "columns": {
+    "id": "string.uuid",
+    "tenant_id": "context.tenant_id",
+    "account_id": "relation.accounts.id",
+    "scope": "helpers.arrayElement:team:account",
+    "name": "person.fullName",
+    "email": "internet.email",
+    "phone": "helpers.arrayElement:phone.number:\u2014"
+  }
+}

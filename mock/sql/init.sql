@@ -3,23 +3,28 @@
 -- Extensions (optional)
 -- create extension if not exists "uuid-ossp";
 
--- CLIENTS
-create table if not exists public.clients (
-  id uuid primary key,
+-- ACCOUNTS (renamed from clients conceptually)
+create table if not exists public.accounts (
+  id bigint primary key generated always as identity,
   tenant_id text not null,
-  name text,
-  email text,
-  phone text,
-  website text,
+  name text check (length(name) <= 255),
+  slug text,
   industry text,
-  naics int,
-  naics_2_digits int,
-  naics_4_digits int,
-  address jsonb,
-  contacts jsonb
+  naics int check (naics >= 0),
+  email text check (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$'),
+  phone text check (phone ~ '^\+?[1-9]\d{1,14}$'),
+  address_line text,
+  address_city text,
+  address_state text check (length(address_state) = 2),
+  address_postal text check (address_postal ~ '^\d{5}(-\d{4})?$'),
+  founded_year int,
+  employees int check (employees >= 0),
+  metadata jsonb,
+  created_at timestamp with time zone default now(),
+  updated_at timestamp with time zone default now()
 );
 
-create index if not exists clients_tenant_idx on public.clients(tenant_id);
+create index if not exists accounts_tenant_idx on public.accounts(tenant_id);
 
 -- POLICIES
 create table if not exists public.policies (
@@ -84,9 +89,17 @@ create table if not exists public.policies (
 
 create index if not exists policies_tenant_idx on public.policies(tenant_id);
 
-alter table public.policies
-  add constraint if not exists policies_account_lookup_fkey
-  foreign key (account_lookup_code) references public.clients(id) on delete set null;
+do $$
+begin
+  if not exists (
+    select 1 from information_schema.table_constraints
+    where table_schema='public' and table_name='policies' and constraint_name='policies_account_lookup_fkey'
+  ) then
+    alter table public.policies
+      add constraint policies_account_lookup_fkey
+      foreign key (account_lookup_id) references public.accounts(id) on delete set null;
+  end if;
+end $$;
 
 -- RENEWALS
 create table if not exists public.renewals (

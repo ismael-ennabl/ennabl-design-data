@@ -1,0 +1,29 @@
+{
+  "table": "accounts",
+  "count": 50,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "name": "company.name",
+    "slug": "string.uuid",
+    "industry": "commerce.department",
+    "naics": "number.int:111110:928120",
+    "email": "internet.email",
+    "phone": "+1${string.numeric:10}",
+    "address_line": "location.streetAddress",
+    "address_city": "location.city",
+    "address_state": "helpers.arrayElement:AL:AK:AZ:AR:CA:CO:CT:DE:FL:GA:HI:ID:IL:IN:IA:KS:KY:LA:ME:MD:MA:MI:MN:MS:MO:MT:NE:NV:NH:NJ:NM:NY:NC:ND:OH:OK:OR:PA:RI:SC:SD:TN:TX:UT:VT:VA:WA:WV:WI:WY",
+    "address_postal": "location.zipCode",
+    "founded_year": "number.int:1950:2024",
+    "employees": "number.int:10:10000",
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "dnb_source": "helpers.arrayElement:DnB:Unknown",
+        "account_since": "number.int:2000:2024",
+        "ownership": "helpers.arrayElement:Owns:Leases:Unknown"
+      }
+    }
+  }
+}
+
+

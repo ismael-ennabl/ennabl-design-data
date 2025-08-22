@@ -1,0 +1,14 @@
+{
+  "table": "executives",
+  "count": 20,
+  "columns": {
+    "id": "string.uuid",
+    "tenant_id": "context.tenant_id",
+    "account_id": "relation.accounts.id",
+    "name": "person.fullName",
+    "title": "helpers.arrayElement:President:Vice President:Secretary:Treasurer:Account Executive:Account Manager",
+    "email": "internet.email",
+    "phone": "phone.number",
+    "source": "helpers.arrayElement:DnB:Internal:Unknown"
+  }
+}

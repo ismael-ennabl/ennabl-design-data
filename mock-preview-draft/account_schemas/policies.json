@@ -1,0 +1,21 @@
+{
+  "table": "policies",
+  "count": 40,
+  "columns": {
+    "id": "string.uuid",
+    "tenant_id": "context.tenant_id",
+    "account_id": "relation.accounts.id",
+    "type": "helpers.arrayElement:Commercial - Workers Compensation:Commercial - Package:Commercial - Umbrella Liability:Commercial - Auto:Commercial - Professional Liability (E&O):Commercial - Business Owners Policy (BOP):Commercial - Cyber Liability:Commercial - Consulting/Risk Management:Commercial - Crime",
+    "carrier": "company.name",
+    "product": "commerce.product",
+    "effective_date": "date.between:2024-07-01:2025-07-01",
+    "expiration_date": "date.between:2025-07-02:2027-12-31",
+    "renewal_date": "date.between:2025-08-01:2027-12-31",
+    "status": "helpers.arrayElement:Active:Lost:Cancelled:Non-Renewable:Not Now:Cross Sell:Renewals-Reviewed:Renewals-Rewritten",
+    "premium": "number.float:5000:150000:2",
+    "revenue": "number.float:2000:80000:2",
+    "commission": "number.float:500:30000:2",
+    "market": "helpers.arrayElement:Market A:Market B:Market C:Market D:Market E",
+    "pay_to": "person.fullName"
+  }
+}

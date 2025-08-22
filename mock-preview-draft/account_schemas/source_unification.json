@@ -1,0 +1,12 @@
+{
+  "table": "source_unification",
+  "count": 8,
+  "columns": {
+    "id": "string.uuid",
+    "tenant_id": "context.tenant_id",
+    "account_id": "relation.accounts.id",
+    "system": "helpers.arrayElement:expdev:DEMO:CRM:AMS",
+    "account_name": "company.name",
+    "account_id_external": "number.int:1000:9999"
+  }
+}

@@ -2,7 +2,7 @@
 export const RESET_ORDER = [
   'renewals',
   'policies',
-  'clients'
+  'accounts'
 ];
 
 

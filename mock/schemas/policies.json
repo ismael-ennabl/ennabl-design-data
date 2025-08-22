@@ -4,8 +4,8 @@
   "columns": {
     "tenant_id": "context.tenant_id",
 
-    "account": "relation.clients.name",
-    "account_lookup_id": "relation.clients.id",
+    "account": "relation.accounts.name",
+    "account_lookup_id": "relation.accounts.id",
 
     "product": "commerce.product",
     "product_lines": "helpers.arrayElement:Property:General Liability:Auto:Workers Comp:Cyber:Umbrella:Inland Marine:Professional Liability:D&O:E&O",

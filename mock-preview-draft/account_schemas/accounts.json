@@ -1,0 +1,32 @@
+{
+  "table": "accounts",
+  "count": 8,
+  "columns": {
+    "id": "string.uuid",
+    "tenant_id": "context.tenant_id",
+    "name": "company.name",
+    "slug": "string.uuid",
+    "industry": "commerce.department",
+    "naics": "number.int:111111:999999",
+    "gross_margin_pct": "number.float:10:100:1",
+    "annual_costs": "number.float:0:100000:2",
+    "lifetime_value": "number.float:50000:500000:1",
+    "markets_count": "number.int:1:8",
+    "email": "internet.email",
+    "phone": "phone.number",
+    "address_line": "location.streetAddress",
+    "address_city": "location.city",
+    "address_state": "location.state",
+    "address_postal": "location.zipCode",
+    "founded_year": "number.int:1950:2024",
+    "employees": "number.int:25:5000",
+    "metadata": {
+      "type": "object",
+      "fields": {
+        "dnb_source": "helpers.arrayElement:DnB:\u2014",
+        "account_since": "number.int:2000:2024",
+        "ownership": "helpers.arrayElement:Owns:Leases:Unknown"
+      }
+    }
+  }
+}
