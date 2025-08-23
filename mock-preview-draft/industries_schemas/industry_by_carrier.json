@@ -1,0 +1,12 @@
+{
+  "table": "industry_by_carrier",
+  "count": 60,
+  "columns": {
+    "id": "string.uuid",
+    "tenant_id": "context.tenant_id",
+    "industry_id": "relation.industries.id",
+    "carrier": "company.name",
+    "accounts_count": "number.int:5:50",
+    "premium": "number.float:10000:500000:2"
+  }
+}

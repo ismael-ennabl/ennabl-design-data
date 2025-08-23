@@ -1,0 +1,12 @@
+{
+  "table": "premium_size",
+  "count": 20,
+  "columns": {
+    "id": "string.uuid",
+    "tenant_id": "context.tenant_id",
+    "market_id": "relation.markets.id",
+    "size_band": "helpers.arrayElement:Small:Medium:Large:XL",
+    "accounts_count": "number.int:5:100",
+    "premium_total": "number.float:50000:5000000:2"
+  }
+}

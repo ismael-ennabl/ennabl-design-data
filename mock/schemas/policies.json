@@ -41,7 +41,7 @@
       "count": 2
     },
 
-    "market": "company.name",
+    "market": "relation.markets.name",
     "issuing_paper": "company.name",
     "pay_to": "person.fullName",
     "intermediary": "company.name",

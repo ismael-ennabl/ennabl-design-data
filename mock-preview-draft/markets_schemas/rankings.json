@@ -1,0 +1,13 @@
+{
+  "table": "rankings",
+  "count": 20,
+  "columns": {
+    "id": "string.uuid",
+    "tenant_id": "context.tenant_id",
+    "market_id": "relation.markets.id",
+    "source": "helpers.arrayElement:Source A:Source B:Source C:Source D",
+    "rank": "number.int:1:20",
+    "accounts_count": "number.int:5:100",
+    "premium_total": "number.float:10000:1000000:2"
+  }
+}

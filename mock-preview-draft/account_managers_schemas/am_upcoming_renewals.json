@@ -1,0 +1,12 @@
+{
+  "table": "am_upcoming_renewals",
+  "count": 100,
+  "columns": {
+    "id": "string.uuid",
+    "tenant_id": "context.tenant_id",
+    "account_manager_id": "relation.account_managers.id",
+    "renewal_month": "date.month",
+    "policies_count": "number.int:1:50",
+    "premium_total": "number.float:50000:2000000:2"
+  }
+}

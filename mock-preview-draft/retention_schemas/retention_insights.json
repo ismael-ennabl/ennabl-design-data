@@ -1,0 +1,15 @@
+{
+  "table": "retention_insights",
+  "count": 90,
+  "columns": {
+    "id": "string.uuid",
+    "tenant_id": "context.tenant_id",
+    "category": "helpers.arrayElement:Products:Industries:Markets:Producers:Biz Org:Acc Managers:Acc Executives",
+    "name": "commerce.product",
+    "retention_pct": "number.float:50:100:1",
+    "from_count": "number.int:1:100",
+    "to_count": "number.int:1:100",
+    "delta": "number.int:-10:10",
+    "view_by": "helpers.arrayElement:Account:Policy:Premium:Revenue"
+  }
+}

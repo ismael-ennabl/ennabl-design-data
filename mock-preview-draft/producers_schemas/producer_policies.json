@@ -1,0 +1,12 @@
+{
+  "table": "producer_policies",
+  "count": 150,
+  "columns": {
+    "id": "string.uuid",
+    "tenant_id": "context.tenant_id",
+    "producer_id": "relation.producers.id",
+    "policy_type": "commerce.product",
+    "premium": "number.float:1000:100000:2",
+    "status": "helpers.arrayElement:Active:Lost:Cancelled:Non-Renewable"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "table": "premium_flow",
+  "count": 25,
+  "columns": {
+    "id": "string.uuid",
+    "tenant_id": "context.tenant_id",
+    "market_id": "relation.markets.id",
+    "from": "helpers.arrayElement:Auto:Package:Umbrella:Crime:Cyber:Health",
+    "to": "helpers.arrayElement:Auto:Package:Umbrella:Crime:Cyber:Health",
+    "value": "number.float:10000:1000000:2"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "table": "producer_avg_account_size",
+  "count": 25,
+  "columns": {
+    "id": "string.uuid",
+    "tenant_id": "context.tenant_id",
+    "producer_id": "relation.producers.id",
+    "band": "helpers.arrayElement:<$100k:$100k-$500k:$500k-$1M:$1M-$5M:>$5M",
+    "accounts_count": "number.int:1:50",
+    "premium_total": "number.float:50000:5000000:2"
+  }
+}

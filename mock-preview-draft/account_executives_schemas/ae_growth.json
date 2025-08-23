@@ -1,0 +1,15 @@
+{
+  "table": "ae_growth",
+  "count": 50,
+  "columns": {
+    "id": "string.uuid",
+    "tenant_id": "context.tenant_id",
+    "account_executive_id": "relation.account_executives.id",
+    "premium_total": "number.float:1000000:50000000:2",
+    "revenue_total": "number.float:500000:10000000:2",
+    "accounts_count": "number.int:10:300",
+    "policies_count": "number.int:50:1000",
+    "growth_rate": "number.float:-10:30:1",
+    "snapshot_date": "date.recent"
+  }
+}

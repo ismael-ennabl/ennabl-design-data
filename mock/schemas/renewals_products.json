@@ -1,0 +1,18 @@
+{
+  "table": "renewals_products",
+  "count": 80,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "product": "commerce.product",
+    "placement": "helpers.arrayElement:Direct:Indirect",
+    "premium_billed": "number.float:1000:500000:2",
+    "revenue_billed": "number.float:100:50000:2",
+    "premium_ennabl": "number.float:1000:500000:2",
+    "revenue_ennabl": "number.float:100:50000:2",
+    "producer": "person.fullName",
+    "account_manager": "person.fullName",
+    "market": "relation.markets.name"
+  }
+}
+
+

@@ -1,0 +1,23 @@
+{
+  "table": "retention_summary",
+  "count": 10,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "period_start": "date.between:2023-01-01:2024-12-31",
+    "period_end": "date.afterColumn:period_start:30:365",
+    "policies_retention_pct": "number.float:50:100:1",
+    "accounts_retention_pct": "number.float:50:100:1",
+    "premium_retention_pct": "number.float:50:100:1",
+    "revenue_retention_pct": "number.float:50:100:1",
+    "prior_policies": "number.int:1000:10000",
+    "current_policies": "number.int:1000:10000",
+    "prior_accounts": "number.int:500:5000",
+    "current_accounts": "number.int:500:5000",
+    "prior_premium": "number.float:100000:10000000:2",
+    "current_premium": "number.float:100000:10000000:2",
+    "prior_revenue": "number.float:10000:5000000:2",
+    "current_revenue": "number.float:10000:5000000:2"
+  }
+}
+
+

@@ -2,7 +2,16 @@
 export const RESET_ORDER = [
   'renewals',
   'policies',
-  'accounts'
+  'accounts',
+  'industries',
+  'account_managers',
+  'producers',
+  'account_executives',
+  'efforts',
+  'retention_insights',
+  'retention_summary',
+  'renewals_products',
+  'markets'
 ];
 
 

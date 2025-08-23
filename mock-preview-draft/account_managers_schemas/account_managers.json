@@ -1,0 +1,17 @@
+{
+  "table": "account_managers",
+  "count": 25,
+  "columns": {
+    "id": "string.uuid",
+    "tenant_id": "context.tenant_id",
+    "name": "person.fullName",
+    "email": "internet.email",
+    "phone": "phone.number",
+    "region": "helpers.arrayElement:North:South:East:West:Central",
+    "accounts_count": "number.int:10:300",
+    "policies_count": "number.int:50:1000",
+    "premium_total": "number.float:1000000:50000000:2",
+    "revenue_total": "number.float:500000:10000000:2",
+    "commission_total": "number.float:100000:5000000:2"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "table": "leaderboard",
+  "count": 20,
+  "columns": {
+    "id": "string.uuid",
+    "tenant_id": "context.tenant_id",
+    "market_id": "relation.markets.id",
+    "account_name": "company.name",
+    "premium": "number.float:10000:500000:2",
+    "rank": "number.int:1:20"
+  }
+}

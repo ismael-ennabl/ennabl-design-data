@@ -1,0 +1,12 @@
+{
+  "table": "am_metrics",
+  "count": 80,
+  "columns": {
+    "id": "string.uuid",
+    "tenant_id": "context.tenant_id",
+    "account_manager_id": "relation.account_managers.id",
+    "metric_name": "helpers.arrayElement:Renewals:Policies Added:Policies Lost:Cross-Sells:New Accounts",
+    "value": "number.int:1:100",
+    "period": "helpers.arrayElement:30d:90d:180d:365d"
+  }
+}

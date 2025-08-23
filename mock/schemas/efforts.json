@@ -1,0 +1,12 @@
+{
+  "table": "efforts",
+  "count": 120,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "code": "helpers.arrayElement:HCE - HIB247 COI &JointNm& Job:HPPD - HIB PL Policy &PolType& &PolDesc& &PolEffDate&:HCEN - HIB CL Endorsement &PolType& &PolDesc&:HCRN - HIB CL Renew &PolType& &PolDesc&:1CO2 - Communication (detail)",
+    "description": "lorem.sentence",
+    "value": "number.int:50:1000"
+  }
+}
+
+
