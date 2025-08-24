@@ -1,0 +1,16 @@
+{
+  "table": "accounts_account_kpis",
+  "count": 8,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "account_id": "relation.accounts.id",
+    "policies_count": "number.int:5:12",
+    "premium_total": "number.float:50000:200000:1",
+    "revenue_total": "number.float:30000:120000:1",
+    "lifetime_value": "number.float:80000:400000:1",
+    "markets": "number.int:3:6",
+    "snapshot_date": "date.recent"
+  }
+}
+
+

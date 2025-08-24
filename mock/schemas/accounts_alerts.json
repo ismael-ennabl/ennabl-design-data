@@ -1,0 +1,15 @@
+{
+  "table": "accounts_alerts",
+  "count": 30,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "account_id": "relation.accounts.id",
+    "category": "helpers.arrayElement:unmapped:duplicates:team:renewal_dates:data_quality:activities",
+    "title": "lorem.words:3",
+    "description": "lorem.sentence",
+    "level": "helpers.arrayElement:info:success:warning:error",
+    "created_at": "date.recent"
+  }
+}
+
+

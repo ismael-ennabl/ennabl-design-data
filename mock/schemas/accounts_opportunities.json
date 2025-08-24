@@ -1,0 +1,13 @@
+{
+  "table": "accounts_opportunities",
+  "count": 40,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "account_id": "relation.accounts.id",
+    "product": "helpers.arrayElement:Commercial - Auto:Commercial - Consulting Services/ERM/Risk Management:Commercial - Cyber Liability:Commercial - Professional Liability (E&O):Commercial - Business Owners Policy (BOP)",
+    "purchase_likelihood_pct": "number.int:15:80",
+    "suggestion": "helpers.arrayElement:Find more cross sell:Find new prospects"
+  }
+}
+
+

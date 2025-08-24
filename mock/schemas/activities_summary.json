@@ -1,0 +1,16 @@
+{
+  "table": "activities_summary",
+  "count": 10,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "period_start": "date.between:2023-01-01:2024-12-31",
+    "period_end": "date.afterColumn:period_start:30:365",
+    "total_work_efforts": "number.int:1000:10000",
+    "clients_with_efforts": "number.int:100:5000",
+    "avg_efforts_per_client": "number.float:1:10:1",
+    "overdue_activities": "number.int:100:3000",
+    "productivity_change_pct": "number.float:-50:50:1"
+  }
+}
+
+

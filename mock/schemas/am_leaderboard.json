@@ -1,0 +1,13 @@
+{
+  "table": "am_leaderboard",
+  "count": 25,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "account_manager_id": "relation.account_managers.id",
+    "metric": "helpers.arrayElement:premium:revenue:accounts:policies",
+    "rank": "number.int:1:25",
+    "value": "number.float:10000:1000000:2"
+  }
+}
+
+

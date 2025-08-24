@@ -1,0 +1,13 @@
+{
+  "table": "am_by_product",
+  "count": 60,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "account_manager_id": "relation.account_managers.id",
+    "product": "commerce.product",
+    "premium": "number.float:10000:1000000:2",
+    "accounts_count": "number.int:1:50"
+  }
+}
+
+

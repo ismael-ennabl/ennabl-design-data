@@ -1,0 +1,14 @@
+{
+  "table": "accounts_contacts",
+  "count": 40,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "account_id": "relation.accounts.id",
+    "scope": "helpers.arrayElement:team:account",
+    "name": "person.fullName",
+    "email": "internet.email",
+    "phone": "+1${string.numeric:10}"
+  }
+}
+
+

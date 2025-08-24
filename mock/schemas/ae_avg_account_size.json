@@ -1,0 +1,13 @@
+{
+  "table": "ae_avg_account_size",
+  "count": 25,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "account_executive_id": "relation.account_executives.id",
+    "band": "helpers.arrayElement:<$100k:$100k-$500k:$500k-$1M:$1M-$5M:>$5M",
+    "accounts_count": "number.int:1:50",
+    "premium_total": "number.float:50000:5000000:2"
+  }
+}
+
+

@@ -1,0 +1,14 @@
+{
+  "table": "premium_outflow",
+  "count": 50,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "market_id": "relation.markets.id",
+    "carrier": "company.name",
+    "premium": "number.float:50000:2000000:2",
+    "outflow": "number.float:50000:2000000:2",
+    "inflow": "number.float:50000:2000000:2"
+  }
+}
+
+

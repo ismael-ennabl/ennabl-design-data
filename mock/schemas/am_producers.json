@@ -1,0 +1,13 @@
+{
+  "table": "am_producers",
+  "count": 50,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "account_manager_id": "relation.account_managers.id",
+    "producer_name": "person.fullName",
+    "premium_total": "number.float:10000:1000000:2",
+    "policies_count": "number.int:1:50"
+  }
+}
+
+

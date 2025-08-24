@@ -1,0 +1,16 @@
+{
+  "table": "producer_growth",
+  "count": 50,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "producer_id": "relation.producers.id",
+    "premium_total": "number.float:1000000:50000000:2",
+    "revenue_total": "number.float:500000:10000000:2",
+    "accounts_count": "number.int:10:300",
+    "policies_count": "number.int:50:1000",
+    "growth_rate": "number.float:-10:30:1",
+    "snapshot_date": "date.recent"
+  }
+}
+
+

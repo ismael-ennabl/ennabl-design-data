@@ -1,0 +1,15 @@
+{
+  "table": "industry_policies",
+  "count": 120,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "industry_id": "relation.industries.id",
+    "type": "helpers.arrayElement:Auto:Package:Umbrella:Crime:Cyber:Health:Consulting:Professional Liability",
+    "premium": "number.float:10000:1000000:2",
+    "revenue": "number.float:5000:500000:2",
+    "commission": "number.float:1000:250000:2",
+    "status": "helpers.arrayElement:Active:Lost:Cancelled:Non-Renewable"
+  }
+}
+
+

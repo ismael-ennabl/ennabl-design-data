@@ -1,0 +1,13 @@
+{
+  "table": "am_upcoming_renewals",
+  "count": 100,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "account_manager_id": "relation.account_managers.id",
+    "renewal_month": "helpers.arrayElement:Jan:Feb:Mar:Apr:May:Jun:Jul:Aug:Sep:Oct:Nov:Dec",
+    "policies_count": "number.int:1:50",
+    "premium_total": "number.float:50000:2000000:2"
+  }
+}
+
+

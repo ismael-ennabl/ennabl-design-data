@@ -1,0 +1,14 @@
+{
+  "table": "activities_leaderboard",
+  "count": 50,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "employee_name": "person.fullName",
+    "total_work_efforts": "number.int:50:1000",
+    "clients_with_efforts": "number.int:10:500",
+    "overdue_activities": "number.int:5:200",
+    "scope": "helpers.arrayElement:Employees:Biz Org"
+  }
+}
+
+

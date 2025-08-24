@@ -1,0 +1,13 @@
+{
+  "table": "ae_by_industry",
+  "count": 60,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "account_executive_id": "relation.account_executives.id",
+    "industry": "commerce.department",
+    "premium": "number.float:10000:1000000:2",
+    "accounts_count": "number.int:1:50"
+  }
+}
+
+

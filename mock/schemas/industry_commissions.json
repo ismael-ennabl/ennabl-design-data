@@ -1,0 +1,14 @@
+{
+  "table": "industry_commissions",
+  "count": 50,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "industry_id": "relation.industries.id",
+    "product": "commerce.product",
+    "commission": "number.float:1000:500000:2",
+    "premium": "number.float:10000:1000000:2",
+    "sort_by": "helpers.arrayElement:Commission:Name:Premium"
+  }
+}
+
+

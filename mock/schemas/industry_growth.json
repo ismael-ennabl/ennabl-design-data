@@ -1,0 +1,16 @@
+{
+  "table": "industry_growth",
+  "count": 40,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "industry_id": "relation.industries.id",
+    "premium_total": "number.float:1000000:50000000:2",
+    "revenue_total": "number.float:500000:10000000:2",
+    "policies_count": "number.int:100:5000",
+    "accounts_count": "number.int:50:1000",
+    "growth_rate": "number.float:-10:30:1",
+    "snapshot_date": "date.recent"
+  }
+}
+
+

@@ -1,0 +1,15 @@
+{
+  "table": "accounts_activities",
+  "count": 213,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "account_id": "relation.accounts.id",
+    "policy_id": "relation.policies.id",
+    "action": "helpers.arrayElement:Renew policy:Invoice generated:Quote created:Note added:Email sent",
+    "code": "helpers.arrayElement:1CO2 - Communication (detail):1MKT - &PolType& Marketing:OPS - Processing",
+    "created_by": "person.fullName",
+    "created_at": "date.between:2025-06-01:2025-08-22"
+  }
+}
+
+

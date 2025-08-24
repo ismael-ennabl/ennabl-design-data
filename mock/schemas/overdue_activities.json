@@ -1,0 +1,12 @@
+{
+  "table": "overdue_activities",
+  "count": 100,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "bucket": "helpers.arrayElement:SMALL (1-3 days):MEDIUM (4-7 days):LARGE (8-15 days):Over 15 days",
+    "count": "number.int:10:500",
+    "percentage": "number.float:0:100:1"
+  }
+}
+
+

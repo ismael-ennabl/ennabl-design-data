@@ -1,0 +1,15 @@
+{
+  "table": "accounts_forms_5500",
+  "count": 12,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "account_id": "relation.accounts.id",
+    "plan_name": "helpers.arrayElement:USW-UAW Retiree Health Care Plan:USW-UAW Kelsey-Hayes Retiree Health Care Plan",
+    "participants": "number.int:50:500",
+    "received_date": "date.between:2024-01-01:2025-12-31",
+    "filing_year": "number.int:2022:2025",
+    "download_url": "internet.url"
+  }
+}
+
+

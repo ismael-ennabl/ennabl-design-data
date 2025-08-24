@@ -1,0 +1,13 @@
+{
+  "table": "industry_leaderboard",
+  "count": 30,
+  "columns": {
+    "tenant_id": "context.tenant_id",
+    "industry_id": "relation.industries.id",
+    "account_name": "company.name",
+    "premium": "number.float:10000:500000:2",
+    "rank": "number.int:1:30"
+  }
+}
+
+
